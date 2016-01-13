@@ -41,6 +41,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+<!--
+// 年月に応じて日付を変更する関数setDateForm
+function setDateForm(selectYear,selectMonth,selectDay){
+  year = document.getElementById(selectYear).value;
+  month = parseInt(document.getElementById(selectMonth).value);
+  
+  selMonth = document.getElementById(selectMonth);
+  selDay = document.getElementById(selectDay);
+  
+  // 日付optionの初期化
+  if(selDay.options[28] == null){
+    selDay.appendChild(document.createElement("option"));
+    selDay.options[28].value = "29";
+    selDay.options[28].text = "29";
+  }
+  if(selDay.options[29] == null){
+    selDay.appendChild(document.createElement("option"));
+    selDay.options[29].value = "30";
+    selDay.options[29].text = "30";
+  }
+  if(selDay.options[30] == null){
+    selDay.appendChild(document.createElement("option"));
+    selDay.options[30].value = "31";
+    selDay.options[30].text = "31";
+  }
+  
+  // 月に応じて日付optionのノードを削除
+  if(month == 2){
+    selDay.removeChild(selDay.options[30]);
+    selDay.removeChild(selDay.options[29]);
+    // 閏年ではない場合
+    if(year%4 != 0){
+      selDay.removeChild(selDay.options[28]);
+    }
+  }else if(month == 4 || month == 6 || month == 9 || month == 11){
+    selDay.removeChild(selDay.options[30]);
+  }
+}
+-->
+</script>
 <title>受注登録</title>
 </head>
 <body>
@@ -51,7 +92,7 @@
   <input type="hidden" name="total" value="<%= total  %>" />
   <input type="hidden" name="tax" value="<%= tax %>" />
   <input type="hidden" name="bill" value="<%= bill %>" />
-  <select name="year">
+  <select name="year" id="year" onchange="setDateForm('year','month','day');">
   <%
     for (int i=2000; i<=2016; i++) {
       out.println("<option value=\"" + i + "\">" +  i + "</option>");
@@ -60,7 +101,7 @@
   </select>
   年
 
-  <select name="month">
+  <select name="month" id="month" onchange="setDateForm('year','month','day');">
   <%
     for (int i=1; i<=12; i++) {
       out.println("<option value=\"" + i + "\">" +  i + "</option>");
@@ -69,7 +110,7 @@
   </select>
   月
 
-  <select name="day">
+  <select name="day" id="day">
   <%
     for (int i=1; i<=31; i++) {
       out.println("<option value=\"" + i + "\">" +  i + "</option>");
