@@ -73,7 +73,7 @@ function setDateForm(selectYear,selectMonth,selectDay){
     selDay.removeChild(selDay.options[30]);
     selDay.removeChild(selDay.options[29]);
     // 閏年ではない場合
-    if(year%4 != 0){
+    if((year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))){
       selDay.removeChild(selDay.options[28]);
     }
   }else if(month == 4 || month == 6 || month == 9 || month == 11){
