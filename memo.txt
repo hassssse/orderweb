@@ -1,0 +1,24 @@
+受注登録するために作ったもの,変えたもの
+
+*index.html
++select_item.jsp
++select_details.jsp
++ChooseItem.java
++ChooseItemList.java
++SelectItemController.java
+*SelectItemResult.java
+*SelectProcess.java
+
+
+変更点
+[select_item.jsp]
+商品コードや数量が文字だったときの処理
+商品コードや数量が負、もしくは大きすぎるときの処理
+
+[select_detail.jsp]
+カレンダーのプルダウンの表示方法
+-> js,jQuery で、不正な入力をさせないようにする
+
+[register.java]
+insert文の記述など、全般的にやってない
+

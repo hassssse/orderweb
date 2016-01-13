@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>受注管理</title>
+</head>
+<body>
+<h1>受注管理システム</h1>
+<form action="./Search" method="post">
+  <p>
+    顧客名
+    <input type="text" name="name" />
+    <input type="submit" value="受注検索"/>
+  </p>
+</form>
+<form action="./ChooseItem" method="post">
+  <input type="hidden" name="reset" value="1" />
+  <input type="submit" value="受注登録" />
+</form>
+</body>
+</html>
