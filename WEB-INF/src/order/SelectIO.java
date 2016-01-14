@@ -30,7 +30,7 @@ public class SelectIO {
         for (SelectOrderItemResult itemResult : itemList) {
           System.out.println(itemResult.getItemCode()
             + "\t" + itemResult.getItemName()
-            + " : " + itemResult.getItemQuantity() + "個");
+            + " : " + itemResult.getQuantity() + "個");
         }
         System.out.println();
       }
