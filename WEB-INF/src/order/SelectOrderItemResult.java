@@ -12,10 +12,10 @@ public class SelectOrderItemResult {
     this.price = price;
     this.quantity = quantity;
   }
-  public SelectOrderItemResult(String itemName, int itemCode, int itemQuantity) {
+  public SelectOrderItemResult(String itemName, int itemCode, int quantity) {
     this.itemName = itemName;
     this.itemCode = itemCode;
-    this.quantity = itemQuantity;
+    this.quantity = quantity;
   }
 
   public int getItemCode(){
@@ -27,7 +27,7 @@ public class SelectOrderItemResult {
   public Double getPrice(){
     return price;
   }
-  public int quantity(){
+  public int getQuantity(){
     return quantity;
   }
 
