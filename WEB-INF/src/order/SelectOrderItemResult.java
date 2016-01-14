@@ -1,32 +1,34 @@
 package order;
 
 public class SelectOrderItemResult {
+  private int itemCode,quantity;
   private String itemName;
-  private int itemCode, itemQuantity;
-  
-  public SelectOrderItemResult() {
-    this.itemName = "noname";
-    this.itemCode = 0;
-    this.itemQuantity = 0;
+  private Double price;
+
+  public SelectOrderItemResult(int itemCode, String itemName, Double price,
+      int quantity) {
+    this.itemCode = itemCode;
+    this.itemName = itemName;
+    this.price = price;
+    this.quantity = quantity;
   }
-  
-  public SelectOrderItemResult(String itemName, int itemCode,
-    int itemQuantity) {
-    this();
+  public SelectOrderItemResult(String itemName, int itemCode, int itemQuantity) {
     this.itemName = itemName;
     this.itemCode = itemCode;
-    this.itemQuantity = itemQuantity;
+    this.quantity = itemQuantity;
   }
-  
-  public String getItemName() {
-    return itemName;
-  }
-  
-  public int getItemCode() {
+
+  public int getItemCode(){
     return itemCode;
   }
-  
-  public int getItemQuantity() {
-    return itemQuantity;
+  public String getItemName(){
+    return itemName;
   }
+  public Double getPrice(){
+    return price;
+  }
+  public int quantity(){
+    return quantity;
+  }
+
 }
