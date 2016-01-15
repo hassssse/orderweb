@@ -26,16 +26,15 @@ public class SearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		response.setContentType("text/html; charset=Windows-31J");
+		response.setContentType("text/html; charset=UTF-8");
 
 		// パラメータ（入力データ）取得
 		String searchcustomName = request.getParameter("name");
-		searchcustomName = new String(searchcustomName.getBytes("8859_1"), "Windows-31J");
+		searchcustomName = new String(searchcustomName.getBytes("8859_1"), "UTF-8");
 
 		//顧客名の一部から検索
 		//SQLを実行
 		SearchModel.DoSql(searchcustomName);
-
 
 		request.setAttribute("orderResultList", orderResultList);
 		request.getRequestDispatcher("/SearchResults.jsp").forward(request, response);
