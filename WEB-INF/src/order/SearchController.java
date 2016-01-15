@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-// ˆÈ‰º‚ğƒCƒ“ƒ|[ƒg‚·‚éiƒTƒjƒ^ƒCƒWƒ“ƒO‚Ì‚½‚ßj
+// ä»¥ä¸‹ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹ï¼ˆã‚µãƒ‹ã‚¿ã‚¤ã‚¸ãƒ³ã‚°ã®ãŸã‚ï¼‰
 
 
 @WebServlet(name = "Search", urlPatterns = {"/Search"})
@@ -28,12 +28,12 @@ public class SearchController extends HttpServlet {
 	throws ServletException, IOException {
 		response.setContentType("text/html; charset=Windows-31J");
 
-		// ƒpƒ‰ƒ[ƒ^i“ü—Íƒf[ƒ^jæ“¾
+		// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼ˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼‰å–å¾—
 		String searchcustomName = request.getParameter("name");
 		searchcustomName = new String(searchcustomName.getBytes("8859_1"), "Windows-31J");
 
-		//ŒÚ‹q–¼‚Ìˆê•”‚©‚çŒŸõ
-		//SQL‚ğÀs
+		//é¡§å®¢åã®ä¸€éƒ¨ã‹ã‚‰æ¤œç´¢
+		//SQLã‚’å®Ÿè¡Œ
 		SearchModel.DoSql(searchcustomName);
 
 
