@@ -1,5 +1,6 @@
 <%@page import="order.SelectOrderResult"%>
 <%@page contentType="text/html" pageEncoding ="UTF-8" %>
+<%@page import="org.apache.commons.lang3.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="order.*" %>
@@ -55,7 +56,6 @@
 		</table>
 
 
-		<!--テーブルを作って商品一覧を表示することで完成する  -->
 
 	</body>
 </html>
