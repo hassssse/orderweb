@@ -11,7 +11,7 @@ public class AdvancesModel {
 	static Connection con = null;
 	private static ArrayList<SelectOrderItemResult>orderItemResultList = new ArrayList<SelectOrderItemResult>();
 	public static Connection connectDatabase() {
-		//データベースアクセス
+		//繝�繝ｼ繧ｿ繝吶�ｼ繧ｹ繧｢繧ｯ繧ｻ繧ｹ
 		con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

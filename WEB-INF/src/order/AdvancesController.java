@@ -26,14 +26,14 @@ public class AdvancesController extends HttpServlet {
 	throws ServletException, IOException {
 		response.setContentType("text/html; charset=Windows-31J");
 
-		// ƒpƒ‰ƒ[ƒ^i“ü—Íƒf[ƒ^jæ“¾
+		// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼ˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼‰å–å¾—
 		String no = request.getParameter("No");
 		no = new String(no.getBytes("8859_1"), "Windows-31J");
 
 		int noint = Integer.parseInt(no);
 
-		//ŒÚ‹q–¼‚Ìˆê•”‚©‚çŒŸõ
-		//SQL‚ğÀs
+		//é¡§å®¢åã®ä¸€éƒ¨ã‹ã‚‰æ¤œç´¢
+		//SQLã‚’å®Ÿè¡Œ
 		AdvancesModel.DoSql(noint);
 
 
