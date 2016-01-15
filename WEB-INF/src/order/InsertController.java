@@ -15,6 +15,7 @@ public class InsertController extends HttpServlet {
   protected void doPost(HttpServletRequest request,
     HttpServletResponse response)
     throws ServletException, IOException {
+    response.setContentType("text/html; charset=UTF-8");
     
     // セッションを利用して選択した商品を管理
     // セッションの生成
