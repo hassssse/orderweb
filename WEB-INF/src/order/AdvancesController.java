@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "Advances", urlPatterns = {"/Advances"})
-
-
 public class AdvancesController extends HttpServlet {
 	private Connection con;
 	private PreparedStatement stmt;
@@ -24,22 +22,23 @@ public class AdvancesController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		response.setContentType("text/html; charset=Windows-31J");
+		response.setContentType("text/html; charset=UTF-8");
 
 		// パラメータ（入力データ）取得
 		String no = request.getParameter("No");
-		no = new String(no.getBytes("8859_1"), "Windows-31J");
+		no = new String(no.getBytes("8859_1"), "UTF-8");
 
 		int noint = Integer.parseInt(no);
+		ArrayList<SelectOrderResult> ResultList = SearchModel.getOrderResultList();
+    int orderNumber = ResultList.get(noint).getOrderNumber();
 
 		//顧客名の一部から検索
 		//SQLを実行
-		AdvancesModel.DoSql(noint);
+		AdvancesModel.DoSql(orderNumber);
 
-
-		request.setAttribute("orderItemResultList", orderItemResultList);
+		//request.setAttribute("orderItemResultList", orderItemResultList);
 		request.setAttribute("noint", noint);
-		request.getRequestDispatcher("/AdvancesResults.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/AdvancesResults.jsp").forward(request, response);
 
 		close();
 	}
