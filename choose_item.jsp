@@ -52,7 +52,7 @@
     <input type="submit" value="商品選択" />
   </p>
 </form>
-<form action="./choose_detail.jsp" method="post">
+<form action="./choose_date.jsp" method="post">
   <input type="hidden" name="total" value="<%= total  %>" />
   <input type="hidden" name="tax" value="<%= tax %>" />
   <input type="hidden" name="bill" value="<%= bill %>" />
