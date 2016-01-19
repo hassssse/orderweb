@@ -33,6 +33,12 @@
   select = new SelectProcess();
   select.selectSalesListAll();
   ArrayList<SelectSalesResult> salesList = select.getSalesResultList();
+  
+  // 現在の年月日
+  Calendar cal = Calendar.getInstance();
+  int nowYear = cal.get(Calendar.YEAR);
+  int nowMonth = cal.get(Calendar.MONTH) + 1;
+  int nowDay = cal.get(Calendar.DATE);
 %>
 
 
@@ -87,15 +93,20 @@ function setDateForm(selectYear,selectMonth,selectDay){
 <body>
 
 <h1>受注登録</h1>
-受注年月日
 <form action="./Register" method="post">
   <input type="hidden" name="total" value="<%= total  %>" />
   <input type="hidden" name="tax" value="<%= tax %>" />
   <input type="hidden" name="bill" value="<%= bill %>" />
+  受注年月日
+
   <select name="year" id="year" onchange="setDateForm('year','month','day');">
   <%
-    for (int i=2000; i<=2016; i++) {
-      out.println("<option value=\"" + i + "\">" +  i + "</option>");
+    for (int i=nowYear-5; i<=nowYear+5; i++) {
+      if (i == nowYear) {
+        out.println("<option value=\"" + i + "\" selected>" +  i + "</option>");
+      } else {
+        out.println("<option value=\"" + i + "\">" +  i + "</option>");
+      }
     }
   %>
   </select>
@@ -104,7 +115,11 @@ function setDateForm(selectYear,selectMonth,selectDay){
   <select name="month" id="month" onchange="setDateForm('year','month','day');">
   <%
     for (int i=1; i<=12; i++) {
-      out.println("<option value=\"" + i + "\">" +  i + "</option>");
+      if (i == nowMonth) {
+        out.println("<option value=\"" + i + "\" selected>" +  i + "</option>");
+      } else {
+        out.println("<option value=\"" + i + "\">" +  i + "</option>");
+      }
     }
   %>
   </select>
@@ -113,7 +128,11 @@ function setDateForm(selectYear,selectMonth,selectDay){
   <select name="day" id="day">
   <%
     for (int i=1; i<=31; i++) {
-      out.println("<option value=\"" + i + "\">" +  i + "</option>");
+      if (i == nowDay) {
+        out.println("<option value=\"" + i + "\" selected>" +  i + "</option>");
+      } else {
+        out.println("<option value=\"" + i + "\">" +  i + "</option>");
+      }
     }
   %>
   </select>
@@ -142,6 +161,7 @@ function setDateForm(selectYear,selectMonth,selectDay){
   </select>
   <p><input type="submit" value="登録" /></p>
 </form>
+
 
 
 <!-- 受注商品 -->
