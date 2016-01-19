@@ -26,7 +26,7 @@
 			for(int i=0;i<ResultList.size();i++){
 				out.println(
 					"<option value="+i+">"+
-				ResultList.get(i).getOrderNumber()+"</option>"
+					ResultList.get(i).getOrderNumber()+"</option>"
 				);
 			}
 			%>

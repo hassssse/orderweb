@@ -15,7 +15,8 @@
 		ArrayList<SelectOrderResult> ResultList = SearchModel.getOrderResultList();
 		ArrayList<SelectOrderItemResult> ItemList = AdvancesModel.getOrderItemResultList();
 
-		int num = (int)request.getAttribute("noint");
+		//int num = (int)request.getAttribute("noint");
+		int num = (Integer)request.getAttribute("noint");
 		%>
 
 		<h1>受注詳細情報</h1>
