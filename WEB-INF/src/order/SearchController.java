@@ -12,8 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-// 以下をインポートする（サニタイジングのため）
-
 
 @WebServlet(name = "Search", urlPatterns = {"/Search"})
 public class SearchController extends HttpServlet {
@@ -22,7 +20,6 @@ public class SearchController extends HttpServlet {
 	private ResultSet rslt;
 	private ArrayList<SelectOrderResult> orderResultList = new ArrayList<SelectOrderResult>();
 	private ArrayList<SelectOrderItemResult> orderItemResultList = new ArrayList<SelectOrderItemResult>();
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {

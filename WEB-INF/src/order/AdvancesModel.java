@@ -29,7 +29,7 @@ public class AdvancesModel {
 		con = connectDatabase();
 		orderItemResultList= new ArrayList<SelectOrderItemResult>();
 		String sql;
-		sql = "SELECT item.item_c,item.item_num,item.price,order_detail.quantity"
+		sql = "SELECT item.item_c,item.item_nam,item.price,order_detail.quantity"
 			+ " FROM order_detail, item"
 			+ " WHERE order_detail.item_c = item.item_c"
 			+ " AND order_no = ?"
@@ -40,7 +40,7 @@ public class AdvancesModel {
 			ResultSet rslt = stmt.executeQuery();
 			while (rslt.next()) {
 				int itemCode = rslt.getInt("item_c");
-				String itemName = rslt.getString("iten_nam");
+				String itemName = rslt.getString("item_nam");
 				Double Price = rslt.getDouble("price");
 				int Quantity = rslt.getInt("quantity");;
 
